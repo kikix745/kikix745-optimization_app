@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Simplex Solver</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">OPERATIONS RESEARCH</p>
+      <h1>Simplex Solver</h1>
+      <p class="subtitle">Solve a linear programming maximization problem step by step.</p>
+    </header>
+
+    <section class="card">
+      <div class="section-heading">
+        <div><h2>Objective function</h2><p class="hint">Maximize Z = c₁x₁ + c₂x₂ + …</p></div>
+        <div class="counter">Variables
+          <button class="small-button" id="minusVar" aria-label="Remove variable">−</button>
+          <strong id="varCount">2</strong>
+          <button class="small-button" id="plusVar" aria-label="Add variable">+</button>
+        </div>
+      </div>
+      <div id="objective"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div><h2>Constraints</h2><p class="hint">Standard form: constraints ≤ and right-hand side ≥ 0.</p></div>
+        <div class="counter">Rows
+          <button class="small-button" id="minusCon" aria-label="Remove constraint">−</button>
+          <strong id="conCount">2</strong>
+          <button class="small-button" id="plusCon" aria-label="Add constraint">+</button>
+        </div>
+      </div>
+      <div id="constraints"></div>
+      <p class="note">All decision variables are assumed non-negative. This version handles maximization problems with ≤ constraints and nonnegative right-hand sides.</p>
+      <button class="primary-button" id="solve">Calculate optimum →</button>
+      <p class="error" id="error" role="alert"></p>
+    </section>
+
+    <section class="card result" id="result" aria-live="polite">
+      <div class="section-heading"><h2>Optimal solution</h2><span class="status">OPTIMAL</span></div>
+      <p class="hint">Maximum objective value</p>
+      <p class="big-value" id="zvalue">0</p>
+      <div class="solution-grid" id="solution"></div>
+      <details><summary>View simplex iterations and tableaus</summary><div id="iterations"></div></details>
+    </section>
+    <footer>Simplex Solver · Calculations run locally in your browser</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
